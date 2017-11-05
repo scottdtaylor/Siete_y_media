@@ -146,4 +146,5 @@ Hand class
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
-//sssssss
+
+//Simple test of changing
