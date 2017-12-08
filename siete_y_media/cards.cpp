@@ -110,13 +110,63 @@ string Card::get_spanish_rank() const {
 // Accessor: returns a string with the suit of the card in English 
 // This is just a stub! Modify it to your liking.
 string Card::get_english_suit() const {
-	return "";
+	string suitName;
+	switch (suit) {
+	case OROS:
+		suitName = "golds";
+		break;
+	case COPAS:
+		suitName = "cups";
+		break;
+	case ESPADAS:
+		suitName = "swords";
+		break;
+	case BASTOS:
+		suitName = "clubs";
+		break;
+	default: break;
+	}
+	return suitName;
 }
 
 // Accessor: returns a string with the rank of the card in English 
 // This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
-	return "";
+	string rankName;
+	switch (rank) {
+	case AS:
+		rankName = "Ace";
+		break;
+	case DOS:
+		rankName = "Two";
+		break;
+	case TRES:
+		rankName = "Three";
+		break;
+	case CUATRO:
+		rankName = "Four";
+		break;
+	case CINCO:
+		rankName = "Five";
+		break;
+	case SEIS:
+		rankName = "Six";
+		break;
+	case SIETE:
+		rankName = "Seven";
+		break;
+	case SOTA:
+		rankName = "Jack";
+		break;
+	case CABALLO:
+		rankName = "Knight";
+		break;
+	case REY:
+		rankName = "King";
+		break;
+	default: break;
+	}
+	return rankName;
 }
 
 
@@ -139,12 +189,31 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
-
-
-
+Hand::Hand() {
+	cards.push_back(Card());
+}
+void Hand::addCard() {
+	cards.push_back(Card());
+}
+ostream& operator<<(ostream& out, const Hand& h) {
+	for (int i = 0; i < h.cards.size(); i++) {
+		cout << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "/t" << h.cards[i].get_english_rank()
+			<< " of " << h.cards[i].get_english_suit()
+	}
+}
 /* *************************************************
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int m) : money(m) {
 
-//Simple test of changing
+}
+int Player::showMoney() {
+	return money;
+}
+void Player::change_money(int bet, bool won) {
+	if (won)
+	money += bet;
+	else money -= bet;
+
+}

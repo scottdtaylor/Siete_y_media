@@ -57,11 +57,12 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-
+	void addCard();
+	friend ostream& operator<<(ostream& out, const Hand& h);
 	// You decide what functions you'll need...
 
 private:
-	// You decide what fields you'll need...
+	vector<Card> cards;// You decide what fields you'll need...
 };
 
 
@@ -72,9 +73,11 @@ public:
 	Player(int m);
 
 	// You decide what functions you'll need...
-
+	void change_money(int bet, bool won);
+	int showMoney();
 private:
 	int money;
+	Hand hand;
 	// You decide what extra fields (if any) you'll need...
 };
 

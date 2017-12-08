@@ -18,7 +18,15 @@ using namespace std;
 
 // Stub for main
 int main() {
-	/* --STATEMENTS-- */
-	int f = 4;
+	Player p1(100);
+	int bet;
+	cout << "You have $" << p1.showMoney();
+	cout << endl << "Enter bet: ";
+	cin >> bet;
+	
+	Hand h1;
+	cout
+
+	
 	return 0;
 }
