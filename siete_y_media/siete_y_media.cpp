@@ -109,6 +109,6 @@ int main() {
 		cout << endl << "You have $0. GAME OVER!\n Come back when you have more money.\n\n Bye!\n\n";
 	else
 		cout << endl << "Congratulations! You beat the casino.\n\n Bye!\n" << endl;
-		system("PAUSE");
+		system("PAUSE"); //cin.get was not working
 	return 0;
 }
