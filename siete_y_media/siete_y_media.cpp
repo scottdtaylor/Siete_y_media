@@ -47,7 +47,6 @@ int main() {
 			cout << "New Card: " << p1.get_hand().get_card(cardcounter) << endl;
 			cardcounter++;
 			cout << "Your cards: " << endl << p1.get_hand();
-			char response;
 			cout << "Your total is: " << p1.get_hand().get_total();
 			if (p1.get_hand().get_total() < 7.5) {
 				cout << ". Do you want another card? (y/n)";
@@ -63,7 +62,7 @@ int main() {
 		}
 
 
-		cout << endl << "Dealer's cards: " << endl << h2;
+		cout << endl << endl << "Dealer's cards: " << endl << h2;
 		cout << "The dealer's total is: " << h2.get_total() << ".";
 		int dcardcounter = 1;
 		while (dealer.get_hand().get_total() < 5.5) {
@@ -82,34 +81,34 @@ int main() {
 		}
 		bool won = true;
 		if (player_under == false) {
-			cout << endl << "Too bad. You lose: " << bet << endl;
+			cout << endl << "Too bad. You lose: " << bet << endl << endl;
 			p1.change_money(bet, !won);
 			dealer.change_money(bet, won);
 		}
 		else if (dealer_under == false) {
-			cout << endl << "You win " << bet << endl;
+			cout << endl << "You win " << bet << endl <<endl;
 			p1.change_money(bet, won);
 			dealer.change_money(bet, !won);
 		}
 		else if (p1.get_hand().get_total() < dealer.get_hand().get_total()) {
-			cout << endl << "Too bad. You lose: " << bet << endl;
+			cout << endl << "Too bad. You lose: " << bet << endl << endl;
 			p1.change_money(bet, !won);
 			dealer.change_money(bet, won);
 		}
 		else if (p1.get_hand().get_total() > dealer.get_hand().get_total()) {
-			cout << endl << "You win " << bet << endl;
+			cout << endl << "You win " << bet << endl << endl;
 			p1.change_money(bet, won);
 			dealer.change_money(bet, !won);
 		}
 		else {
-			cout << endl << "Nobody wins!" << endl;
+			cout << endl << "Nobody wins!" << endl << endl;
 		}
 
 	}
 	if (p1.showMoney() <= 0)
-		cout << endl << "You have $0. GAME OVER!\n Come back when you have more money.\n\n Bye!";
+		cout << endl << "You have $0. GAME OVER!\n Come back when you have more money.\n\n Bye!\n\n";
 	else
-		cout << endl << "Congratulations! You beat the casino.\n\n Bye!";
+		cout << endl << "Congratulations! You beat the casino.\n\n Bye!\n" << endl;
 		system("PAUSE");
 	return 0;
 }
