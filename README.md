@@ -10,10 +10,11 @@ wins. If both players bust, the player loses. In a tie no money is exchanged.
 The project was mainly a test of git and some basic functionality (branching, commits, tracking and removing files). The actual game itself
 is functional although I did not get around to creating a log file for each round. All parts of the rubric should be fulfilled.
 
-##Code Description
+
+## Code Description
 The code is fairly simple, made of a loop for each round conditional on players still having money. Within there is a loop for the player 
 which takes input on drawing cards and an automatic one for the dealer. The winner is then decided based on card totals.
 
-##Problems
+## Problems
 The main problems for me was trying to find some of the git functions in VS and when that failed attempting to use the CLI. For example 
 removing a file at first deleted the file until I learned the correct command. 
