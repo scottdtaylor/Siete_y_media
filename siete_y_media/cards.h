@@ -47,6 +47,8 @@ public:
 	// Useful if you want to sort the cards.
 	bool operator < (Card card2) const;
 
+	friend ostream& operator<<(ostream& out, Card c);
+
 private:
 	suit_t suit;
 	rank_t rank;
@@ -60,7 +62,8 @@ public:
 	void addCard();
 	friend ostream& operator<<(ostream& out, const Hand& h);
 	// You decide what functions you'll need...
-
+	double get_total() const;
+	Card get_card(int i);
 private:
 	vector<Card> cards;// You decide what fields you'll need...
 };
@@ -75,6 +78,10 @@ public:
 	// You decide what functions you'll need...
 	void change_money(int bet, bool won);
 	int showMoney();
+	void set_hand(Hand h);
+	Hand get_hand() const;
+	void giveCard();
+	
 private:
 	int money;
 	Hand hand;

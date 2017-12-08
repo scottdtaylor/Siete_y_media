@@ -183,7 +183,11 @@ bool Card::operator < (Card card2) const {
 	return rank < card2.rank;
 }
 
-
+ostream& operator<<(ostream& out, Card c) {
+	out << "\t" << c.get_spanish_rank() << " de " << c.get_spanish_suit() << "\t (" <<c.get_english_rank()
+		<< " of " << c.get_english_suit() << ")." << endl;
+	return out;
+}
 
 /* *************************************************
 Hand class
@@ -196,10 +200,26 @@ void Hand::addCard() {
 	cards.push_back(Card());
 }
 ostream& operator<<(ostream& out, const Hand& h) {
+	
 	for (int i = 0; i < h.cards.size(); i++) {
-		cout << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "/t" << h.cards[i].get_english_rank()
-			<< " of " << h.cards[i].get_english_suit()
+		out << "\t" << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "\t (" << h.cards[i].get_english_rank()
+			<< " of " << h.cards[i].get_english_suit() << ")." << endl;
 	}
+	return out;
+}
+double Hand::get_total() const{
+	double total = 0;
+	for (int i = 0; i < cards.size(); ++i) {
+		
+		if (cards[i].get_rank() > 7)
+			total +=.5;
+		else total += cards[i].get_rank();
+		
+	}
+	return total;
+}
+Card Hand::get_card(int i) {
+	return cards[i];
 }
 /* *************************************************
 Player class
@@ -217,3 +237,15 @@ void Player::change_money(int bet, bool won) {
 	else money -= bet;
 
 }
+void Player::set_hand(Hand h) {
+	hand = h;
+}
+Hand Player::get_hand() const {
+	return hand;
+}
+void Player::giveCard() {
+	hand.addCard();
+}
+
+	
+
