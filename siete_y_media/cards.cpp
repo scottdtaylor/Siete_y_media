@@ -198,7 +198,7 @@ void Hand::addCard() {
 ostream& operator<<(ostream& out, const Hand& h) {
 	for (int i = 0; i < h.cards.size(); i++) {
 		cout << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "/t" << h.cards[i].get_english_rank()
-			<< " of " << h.cards[i].get_english_suit()
+			<< " of " << h.cards[i].get_english_suit() << endl;
 	}
 }
 /* *************************************************
