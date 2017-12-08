@@ -184,8 +184,9 @@ bool Card::operator < (Card card2) const {
 }
 
 ostream& operator<<(ostream& out, Card c) {
-	out << "/t" << c.get_spanish_rank() << " de " << c.get_spanish_suit() << "/t (" <<c.get_english_rank()
+	out << "\t" << c.get_spanish_rank() << " de " << c.get_spanish_suit() << "\t (" <<c.get_english_rank()
 		<< " of " << c.get_english_suit() << ")." << endl;
+	return out;
 }
 
 /* *************************************************
@@ -201,9 +202,10 @@ void Hand::addCard() {
 ostream& operator<<(ostream& out, const Hand& h) {
 	
 	for (int i = 0; i < h.cards.size(); i++) {
-		out << "/t" << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "/t (" << h.cards[i].get_english_rank()
+		out << "\t" << h.cards[i].get_spanish_rank() << " de " << h.cards[i].get_spanish_suit() << "\t (" << h.cards[i].get_english_rank()
 			<< " of " << h.cards[i].get_english_suit() << ")." << endl;
 	}
+	return out;
 }
 double Hand::get_total() const{
 	double total = 0;
@@ -245,15 +247,5 @@ void Player::giveCard() {
 	hand.addCard();
 }
 
-	int cardcounter = 1;
-	this->giveCard();
-	cout << "New Card: " << this->get_hand().get_card(cardcounter) << endl;
-	cardcounter++;
-	cout << "Your cards: " << endl << this->get_hand();
-	char response;
-	cout << "Your total is: " << this->get_hand().get_total();
-	if(this->get_hand().get_total() > 7.5)
-		
-		". Do you want another card? (y/n)";
-	cin >> response;
+	
 
